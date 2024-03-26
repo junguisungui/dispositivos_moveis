@@ -8,14 +8,17 @@ function LoginScreen() {
     function handleLogin() {
         navigation.navigate('Home');
     }
-    function handleLogin2() {
+    function handleCadastro() {
         navigation.navigate('Cadastro');
+    }
+    function handleNovasenha() {
+        navigation.navigate('Novasenha');
     }
 
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.logoContainer}>
-                <Image style={styles.imagem} source={require('../../assets/notes.png')} />
+                <Image style={styles.imagem} source={require('../../assets/notas.png')} />
                 <Text style={styles.titulo}>Korea Notes</Text>
             </View>
 
@@ -41,12 +44,12 @@ function LoginScreen() {
                             placeholderTextColor="#9CA3AF"
                         />
                     </View>
-                    <Text style={styles.forgotPassword}>Esqueceu a senha?</Text>
+                    <Text style={styles.forgotPassword} onPress={handleNovasenha}>Esqueceu a senha?</Text>
                 </View>
                 <View style={styles.buttonContainer}>
-                    <Button title="Entrar" onPress={handleLogin} />
+                    <Button title="Entrar" color='#9925be' onPress={handleLogin} />
                 </View>
-                <Text style={styles.cadastroText} onPress={handleLogin2}>Ainda não possui uma conta? Clique aqui</Text>
+                <Text style={styles.cadastroText} onPress={handleCadastro}>Ainda não possui uma conta? Clique aqui</Text>
             </View>
         </SafeAreaView>
     );
@@ -62,23 +65,23 @@ const styles = StyleSheet.create({
         alignItems: 'center', // centralizar a imagem
     },
     imagem:{
-        width:30,
-        height: 30,
+        width:70,
+        height: 70,  
     },
     titulo: {
-        marginTop: 40,
         textAlign: 'center',
-        fontSize: 24,
+        fontSize: 28,
         fontWeight: 'bold',
         lineHeight: 50,
-        color: '#065F46',
+        color: '#be2596',
     },
     formContainer: {
-        marginTop: 40,
+        marginTop: 20,
     },
     label: {
         fontWeight: '500',
-        color: '#1F2937',
+        color: '#6c25be',
+        fontWeight: 'bold',
     },
     inputContainer: {
         marginTop: 8,
@@ -96,10 +99,13 @@ const styles = StyleSheet.create({
     },
     forgotPassword: {
         fontWeight: '600',
-        color: '#065F46',
+        color: '#be2596',
     },
     buttonContainer: {
         marginTop: 12,
+    },
+    button: {
+        color: '#9925be',
     },
     cadastroText: {
         marginTop: 20,
